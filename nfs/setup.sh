@@ -10,6 +10,7 @@ kubectl apply -f ./src/operator.yaml
 kubectl -n rook-nfs-system get pod
 
 kubectl apply -f ./src/rbac.yaml
+# TODO: config size of the pool
 kubectl apply -f ./src/nfs-server.yaml
 # TODO: check and verify
 kubectl -n rook-nfs get pod
