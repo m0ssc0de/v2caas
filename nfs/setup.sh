@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# yum install nfs-utils 
+# apt-get install nfs-common
+
 kubectl apply -f ./src/common.yaml
 kubectl apply -f ./src/provisioner.yaml
 kubectl apply -f ./src/operator.yaml
