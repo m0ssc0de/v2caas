@@ -5,7 +5,17 @@
 ## Architecture
 
 - docker
+- infra-registry
 - k8s
 - promethuse
 - alertmanager
 - node-expoter
+
+## logical
+
+1. install docker
+2. install registry(if need)
+3. install kubeadm kubelet kubectl and so on
+4. kubeadm install with custom images
+5. install nfs in k8s for k8s
+6. install promethus and relate components
