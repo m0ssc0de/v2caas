@@ -19,3 +19,8 @@
 4. kubeadm install with custom images
 5. install nfs in k8s for k8s
 6. install promethus and relate components
+
+## TODO plan
+
+1. nfs in k8s
+2. kubeadm with etcd
