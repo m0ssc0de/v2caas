@@ -1,0 +1,4 @@
+[kube-master]
+172.31.13.59:8329 LB_ROLE=master
+172.31.13.60:8329 LB_ROLE=backup
+172.31.13.61:8329 LB_ROLE=backup
