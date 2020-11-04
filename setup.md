@@ -125,9 +125,10 @@ systemctl enable keepalived
 
 ## 2. 部署 docker，加载镜像
 
+每台节点
+
 ```shell
-tar -zxvf docker-pkg.tar.gz
-cd docker-pkg
+cd docker-deb
 sudo apt-get install ./*
 docker ps
 ```
@@ -136,7 +137,7 @@ docker ps
 
 ```
 cd ..
-docker load -i docker-images.tar.gz
+docker load -i all-images.tar.gz
 ```
 
 ## 3. 部署 k8s
@@ -150,8 +151,7 @@ net.bridge.bridge-nf-call-iptables = 1
 EOF
 sudo sysctl --system
 
-tar -zxvf kube.tar.gz
-cd kube
+cd kube-deb
 sudo apt-get install ./*
 ```
 
@@ -212,6 +212,15 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 #    --control-plane --certificate-key 19427e69f7539b99393078dfc95f8e2af09aadeb0b1bceb4cd640ca3d79247f3
 ```
 
+执行
+
+```
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+
+
 之后 `kubectl get nodes --watch` 等待节点 ready
 
 4. 剩余节点
@@ -227,8 +236,10 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 ## 4. 部署监控套件
 
+在一台主节点
+
 ```
-cd monitoring
+cd ./src/monitoring
 kubectl create -f manifests/setup
 ```
 
